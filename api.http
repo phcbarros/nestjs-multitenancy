@@ -28,3 +28,18 @@ Content-Type: application/json
   "email": "teste5@teste.com",
   "password": "123456"
 }
+
+
+### criar parceiro
+POST http://localhost:3000/partners
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwibmFtZSI6IkpvbmggRG9lIiwiZW1haWwiOiJ0ZXN0ZTVAdGVzdGUuY29tIiwicm9sZXMiOlsiUEFSVE5FUiJdLCJjcmVhdGVkQXQiOiIyMDI0LTA2LTE2VDE1OjAxOjM5LjE3MloiLCJ1cGRhdGVkQXQiOiIyMDI0LTA2LTE2VDE1OjAxOjM5LjE3MloiLCJpYXQiOjE3MTg1Njg4NDIsImV4cCI6MTcxODY1NTI0Mn0.c7M8z2mTBJjfZH_igW_ZqTYvf3yyU5OvFrw9OFH5zlQ
+
+{
+  "name": "partner 1"
+}
+
+
+### listar todos os parceiros
+GET http://localhost:3000/partners
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwibmFtZSI6IkpvbmggRG9lIiwiZW1haWwiOiJ0ZXN0ZTVAdGVzdGUuY29tIiwicm9sZXMiOlsiUEFSVE5FUiJdLCJjcmVhdGVkQXQiOiIyMDI0LTA2LTE2VDE1OjAxOjM5LjE3MloiLCJ1cGRhdGVkQXQiOiIyMDI0LTA2LTE2VDE1OjAxOjM5LjE3MloiLCJpYXQiOjE3MTg1Njg4NDIsImV4cCI6MTcxODY1NTI0Mn0.c7M8z2mTBJjfZH_igW_ZqTYvf3yyU5OvFrw9OFH5zlQ
