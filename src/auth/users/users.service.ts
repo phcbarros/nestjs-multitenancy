@@ -3,6 +3,7 @@ import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UserRoles } from './user-roles';
 import * as bcrypt from 'bcrypt';
+import { UpdatePartnerDto } from 'src/partners/dto/update-partner.dto';
 
 @Injectable()
 export class UsersService {
@@ -32,8 +33,8 @@ export class UsersService {
     return bcrypt.hashSync(password, 10);
   }
 
-  findOne(idOrEmail: number | string) {
-    return this.prismaService.user.findFirst({
+  async findOne(idOrEmail: number | string) {
+    return await this.prismaService.user.findFirst({
       where: {
         ...(typeof idOrEmail === 'number'
           ? {
@@ -43,6 +44,35 @@ export class UsersService {
               email: idOrEmail,
             }),
       },
+    });
+  }
+
+  async findAllCommonUsers() {
+    return await this.prismaService.user.findMany({
+      where: {
+        roles: {
+          array_contains: UserRoles.USER,
+        },
+      },
+    });
+  }
+
+  async findAllPartnerUsers() {
+    return await this.prismaService.user.findMany({
+      where: {
+        roles: {
+          array_contains: UserRoles.PARTNER,
+        },
+      },
+    });
+  }
+
+  async updatePartnerUser(id: number, data: Partial<UpdatePartnerDto>) {
+    return await this.prismaService.user.update({
+      where: {
+        id: Number(id),
+      },
+      data,
     });
   }
 }

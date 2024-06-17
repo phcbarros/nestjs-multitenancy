@@ -9,11 +9,14 @@ export class PartnersController {
   constructor(private readonly partnersService: PartnersService) {}
 
   @Post()
-  create(@Body() createPartnerDto: CreatePartnerDto, @Req() req: any) {
-    return this.partnersService.create({
+  async create(@Body() createPartnerDto: CreatePartnerDto, @Req() req: any) {
+    const partner = await this.partnersService.create({
       ...createPartnerDto,
       userId: req.user.id,
     });
+
+    console.log(partner);
+    return partner;
   }
 
   // apenas para questões didáticas

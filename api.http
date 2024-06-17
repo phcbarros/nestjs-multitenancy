@@ -6,9 +6,12 @@ Content-Type: application/json
 
 {
   "name": "Jonh Doe",
-  "email": "teste4@teste.com",
+  "email": "teste1@teste.com",
   "password": "123456"
 }
+
+### lista todos os usuários comuns
+GET http://localhost:3000/users
 
 ### usuário parceiro
 POST http://localhost:3000/partner/users
@@ -16,16 +19,28 @@ Content-Type: application/json
 
 {
   "name": "Jonh Doe",
-  "email": "teste5@teste.com",
+  "email": "teste2@teste.com",
   "password": "123456"
 }
+
+### lista todos os usuários parceiros
+GET http://localhost:3000/partner/users
+
+### usuário parceiro
+PATCH  http://localhost:3000/partner/users/1
+Content-Type: application/json
+
+{
+  "roles": ["USER"]
+}
+
 
 ### Login
 POST http://localhost:3000/auth/login
 Content-Type: application/json
 
 {
-  "email": "teste5@teste.com",
+  "email": "teste@teste.com",
   "password": "123456"
 }
 
@@ -33,13 +48,70 @@ Content-Type: application/json
 ### criar parceiro
 POST http://localhost:3000/partners
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwibmFtZSI6IkpvbmggRG9lIiwiZW1haWwiOiJ0ZXN0ZTVAdGVzdGUuY29tIiwicm9sZXMiOlsiUEFSVE5FUiJdLCJjcmVhdGVkQXQiOiIyMDI0LTA2LTE2VDE1OjAxOjM5LjE3MloiLCJ1cGRhdGVkQXQiOiIyMDI0LTA2LTE2VDE1OjAxOjM5LjE3MloiLCJpYXQiOjE3MTg1Njg4NDIsImV4cCI6MTcxODY1NTI0Mn0.c7M8z2mTBJjfZH_igW_ZqTYvf3yyU5OvFrw9OFH5zlQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IkpvbmggRG9lIiwiZW1haWwiOiJ0ZXN0ZUB0ZXN0ZS5jb20iLCJyb2xlcyI6WyJQQVJUTkVSIl0sImNyZWF0ZWRBdCI6IjIwMjQtMDYtMTZUMjM6MzY6MDAuMTU1WiIsInVwZGF0ZWRBdCI6IjIwMjQtMDYtMTZUMjM6MzY6MDAuMTU1WiIsImlhdCI6MTcxODU4MTIyMSwiZXhwIjoxNzI3MjIxMjIxfQ.-gC502400hvo1xKBgwvvHxwRUxScRiWweUchgEQ6Bh8
 
 {
   "name": "partner 1"
 }
 
 
+
+
 ### listar todos os parceiros
 GET http://localhost:3000/partners
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwibmFtZSI6IkpvbmggRG9lIiwiZW1haWwiOiJ0ZXN0ZTVAdGVzdGUuY29tIiwicm9sZXMiOlsiUEFSVE5FUiJdLCJjcmVhdGVkQXQiOiIyMDI0LTA2LTE2VDE1OjAxOjM5LjE3MloiLCJ1cGRhdGVkQXQiOiIyMDI0LTA2LTE2VDE1OjAxOjM5LjE3MloiLCJpYXQiOjE3MTg1Njg4NDIsImV4cCI6MTcxODY1NTI0Mn0.c7M8z2mTBJjfZH_igW_ZqTYvf3yyU5OvFrw9OFH5zlQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IkpvbmggRG9lIiwiZW1haWwiOiJ0ZXN0ZUB0ZXN0ZS5jb20iLCJyb2xlcyI6WyJVU0VSIl0sImNyZWF0ZWRBdCI6IjIwMjQtMDYtMTZUMjM6MzY6MDAuMTU1WiIsInVwZGF0ZWRBdCI6IjIwMjQtMDYtMTdUMDA6MTU6MDcuMDg5WiIsImlhdCI6MTcxODU4MzMzNiwiZXhwIjoxNzI3MjIzMzM2fQ.ymuexKzF3-WQMgoOO8rkdeyFXArGvcl6qCWOLvaw4Gs
+
+
+### criar evento para o parceiro
+POST  http://localhost:3000/events
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IkpvbmggRG9lIiwiZW1haWwiOiJ0ZXN0ZUB0ZXN0ZS5jb20iLCJyb2xlcyI6WyJQQVJUTkVSIl0sImNyZWF0ZWRBdCI6IjIwMjQtMDYtMTZUMjM6MzY6MDAuMTU1WiIsInVwZGF0ZWRBdCI6IjIwMjQtMDYtMTZUMjM6MzY6MDAuMTU1WiIsImlhdCI6MTcxODU4MTIyMSwiZXhwIjoxNzI3MjIxMjIxfQ.-gC502400hvo1xKBgwvvHxwRUxScRiWweUchgEQ6Bh8
+
+{
+  "name": "Evento 1",
+  "description": "Descricão 1",
+  "date": "2024-07-16T22:59:56.096Z"
+}
+
+### listar todos os eventos do parceiro
+GET  http://localhost:3000/events
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IkpvbmggRG9lIiwiZW1haWwiOiJ0ZXN0ZUB0ZXN0ZS5jb20iLCJyb2xlcyI6WyJQQVJUTkVSIl0sImNyZWF0ZWRBdCI6IjIwMjQtMDYtMTZUMjM6MzY6MDAuMTU1WiIsInVwZGF0ZWRBdCI6IjIwMjQtMDYtMTZUMjM6MzY6MDAuMTU1WiIsImlhdCI6MTcxODU4MTIyMSwiZXhwIjoxNzI3MjIxMjIxfQ.-gC502400hvo1xKBgwvvHxwRUxScRiWweUchgEQ6Bh8
+
+
+### listar evento do parceiro por id
+GET  http://localhost:3000/events/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IkpvbmggRG9lIiwiZW1haWwiOiJ0ZXN0ZTJAdGVzdGUuY29tIiwicm9sZXMiOlsiUEFSVE5FUiJdLCJjcmVhdGVkQXQiOiIyMDI0LTA2LTE2VDIzOjM3OjAyLjM3OFoiLCJ1cGRhdGVkQXQiOiIyMDI0LTA2LTE2VDIzOjM3OjAyLjM3OFoiLCJpYXQiOjE3MTg1ODEwMjcsImV4cCI6MTcyNzIyMTAyN30.v8zP76iglT7w47D8QS61aM6RvFuAsIhFWpn6Nv4O_b8
+
+
+
+
+###############################
+### criar outro parceiro
+POST http://localhost:3000/partners
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IkpvbmggRG9lIiwiZW1haWwiOiJ0ZXN0ZTJAdGVzdGUuY29tIiwicm9sZXMiOlsiUEFSVE5FUiJdLCJjcmVhdGVkQXQiOiIyMDI0LTA2LTE2VDIzOjM3OjAyLjM3OFoiLCJ1cGRhdGVkQXQiOiIyMDI0LTA2LTE2VDIzOjM3OjAyLjM3OFoiLCJpYXQiOjE3MTg1ODExMjMsImV4cCI6MTcyNzIyMTEyM30.znV2q6H_llAf3T-U0BdrCCvNp_7oiOHl-170usUwtZQ
+
+{
+  "name": "partner 2"
+}
+
+### criar evento para o outro parceiro
+POST  http://localhost:3000/events
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IkpvbmggRG9lIiwiZW1haWwiOiJ0ZXN0ZTJAdGVzdGUuY29tIiwicm9sZXMiOlsiUEFSVE5FUiJdLCJjcmVhdGVkQXQiOiIyMDI0LTA2LTE2VDIzOjM3OjAyLjM3OFoiLCJ1cGRhdGVkQXQiOiIyMDI0LTA2LTE2VDIzOjM3OjAyLjM3OFoiLCJpYXQiOjE3MTg1ODExMjMsImV4cCI6MTcyNzIyMTEyM30.znV2q6H_llAf3T-U0BdrCCvNp_7oiOHl-170usUwtZQ
+
+{
+  "name": "Evento 2",
+  "description": "Descricão 2",
+  "date": "2024-07-16T22:59:56.096Z"
+}
+
+### listar todos os eventos do outro parceiro
+GET  http://localhost:3000/events
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IkpvbmggRG9lIiwiZW1haWwiOiJ0ZXN0ZTJAdGVzdGUuY29tIiwicm9sZXMiOlsiUEFSVE5FUiJdLCJjcmVhdGVkQXQiOiIyMDI0LTA2LTE2VDIzOjM3OjAyLjM3OFoiLCJ1cGRhdGVkQXQiOiIyMDI0LTA2LTE2VDIzOjM3OjAyLjM3OFoiLCJpYXQiOjE3MTg1ODExMjMsImV4cCI6MTcyNzIyMTEyM30.znV2q6H_llAf3T-U0BdrCCvNp_7oiOHl-170usUwtZQ
+
+
+### listar evento do outro parceiro por id
+GET  http://localhost:3000/events/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IkpvbmggRG9lIiwiZW1haWwiOiJ0ZXN0ZTJAdGVzdGUuY29tIiwicm9sZXMiOlsiUEFSVE5FUiJdLCJjcmVhdGVkQXQiOiIyMDI0LTA2LTE2VDIzOjM3OjAyLjM3OFoiLCJ1cGRhdGVkQXQiOiIyMDI0LTA2LTE2VDIzOjM3OjAyLjM3OFoiLCJpYXQiOjE3MTg1ODExMjMsImV4cCI6MTcyNzIyMTEyM30.znV2q6H_llAf3T-U0BdrCCvNp_7oiOHl-170usUwtZQ
+
