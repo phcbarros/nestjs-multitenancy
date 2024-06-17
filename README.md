@@ -26,6 +26,8 @@
 
 Exemplo de aplicação [Multi Tenant com NestJS](https://www.youtube.com/watch?v=UWKHcIa-Hjo)
 
+[Repo](https://github.com/devfullcycle/live-imersao-18-nestjs-multi-tenancy/tree/main) do exemplo
+
 ## Installation
 
 ```bash
